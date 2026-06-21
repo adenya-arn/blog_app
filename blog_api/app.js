@@ -6,6 +6,7 @@ import authRouter from "./routes/authRouter.js";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import postRouter from "./routes/postRouter.js";
+import commentRouter from "./routes/commentRouter.js";
 
 dotenv.config();
 
@@ -28,6 +29,7 @@ app.get("/", (req, res) => {
 
 app.use("/auth", authRouter);
 app.use("/posts", postRouter);
+app.use("/comments", commentRouter);
 
 const PORT = process.env.PORT || 3002;
 
