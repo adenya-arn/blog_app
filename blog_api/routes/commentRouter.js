@@ -4,6 +4,8 @@ import { authMiddleware } from "../middleware/authMiddleware.js";
 import {
   createComment,
   getCommentsByPost,
+  deleteComment,
+  updateComment,
 } from "../controllers/commentController.js";
 
 const commentRouter = Router();
@@ -14,4 +16,7 @@ commentRouter.get("/post/:id", getCommentsByPost);
 // protected - create comment
 commentRouter.post("/post/:id", authMiddleware, createComment);
 
+commentRouter.delete("/:id", authMiddleware, deleteComment);
+
+commentRouter.put("/:id", authMiddleware, updateComment);
 export default commentRouter;
