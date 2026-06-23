@@ -1,3 +1,9 @@
+import Layout from "./Layout";
+
 export default function PostDetails() {
-  return <h1>Post Details Page</h1>;
+  return (
+    <Layout>
+      <h1>Post Details Page</h1>
+    </Layout>
+  );
 }
