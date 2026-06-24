@@ -44,17 +44,23 @@ export default function PostDetails() {
 
   return (
     <Layout>
-      <article id="single-post">
-        <h1>{post.title}</h1>
+      <main id="post-details-page">
+        <article id="single-post">
+          <h1>{post.title}</h1>
 
-        <p>By {post.author?.username}</p>
+          <p className="post-author">By {post.author?.username}</p>
 
-        <p>{post.content}</p>
+          <p>{post.content}</p>
 
-        <CommentForm onSubmit={handleComment} />
+          {localStorage.getItem("token") ? (
+            <CommentForm onSubmit={handleComment} />
+          ) : (
+            <p>Login to leave a comment.</p>
+          )}
 
-        <CommentList comments={comments} />
-      </article>
+          <CommentList comments={comments} />
+        </article>
+      </main>
     </Layout>
   );
 }

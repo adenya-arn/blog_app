@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import Navbar from "../components/Navbar";
 
 export default function Layout({ children }) {
   return (
@@ -10,6 +11,8 @@ export default function Layout({ children }) {
           </Link>
         </div>
       </header>
+
+      <Navbar />
 
       <main id="main-content">{children}</main>
     </div>

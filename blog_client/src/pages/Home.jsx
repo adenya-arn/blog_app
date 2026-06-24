@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
-import api from "../api/api.js";
+import { api } from "../api/api";
 import PostCard from "../components/PostCard.jsx";
 import Layout from "./Layout.jsx";
 
-export function Home() {
+export default function Home() {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
@@ -21,7 +21,7 @@ export function Home() {
   }, []);
   return (
     <Layout>
-      <section id="home-page">
+      <main id="home-page">
         <h1 id="page-title">Latest Posts</h1>
 
         <div id="posts-grid">
@@ -29,7 +29,7 @@ export function Home() {
             <PostCard key={post.id} post={post} />
           ))}
         </div>
-      </section>
+      </main>
     </Layout>
   );
 }
