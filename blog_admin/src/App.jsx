@@ -50,7 +50,7 @@ function App() {
         />
 
         <Route
-          path="/comments/:id"
+          path="/comments"
           element={
             <ProtectedRoute>
               <Layout>

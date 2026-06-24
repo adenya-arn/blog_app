@@ -1,16 +1,177 @@
-# React + Vite
+# Blog Admin
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A React-based admin dashboard for managing blog content. This application allows authenticated users to create, edit, publish, unpublish, and delete blog posts, as well as moderate comments related to their posts.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+### Authentication
 
-## React Compiler
+- Secure login using JWT authentication
+- Protected routes for authorized users only
+- Automatic token handling using Axios interceptors
+- Logout functionality
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### Post Management
 
-## Expanding the ESLint configuration
+- Create new blog posts
+- Edit existing posts
+- Delete posts
+- Publish and unpublish posts
+- View all authored posts in a dashboard
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### Comment Moderation
+
+- View comments on owned blog posts
+- Delete inappropriate comments
+- Manage community engagement from a central dashboard
+
+### User Experience
+
+- Clean and responsive admin interface
+- React Router navigation
+- Reusable components
+- Protected route handling
+- Modern dashboard layout
+
+---
+
+## Tech Stack
+
+### Frontend
+
+- React
+- React Router DOM
+- Axios
+- CSS
+
+### Backend
+
+- Express.js
+- Prisma ORM
+- PostgreSQL
+- JWT Authentication
+
+---
+
+## Project Structure
+
+```text
+src/
+├── api/
+│   └── api.js
+├── components/
+│   ├── AdminNavbar.jsx
+│   ├── Layout.jsx
+│   ├── PostForm.jsx
+│   └── ProtectedRoute.jsx
+├── pages/
+│   ├── Login.jsx
+│   ├── Dashboard.jsx
+│   ├── CreatePost.jsx
+│   ├── EditPost.jsx
+│   └── ManageComments.jsx
+├── styles/
+│   └── global.css
+├── App.jsx
+└── main.jsx
+```
+
+---
+
+## Installation
+
+### Clone the repository
+
+```bash
+git clone <repository-url>
+cd blog_admin
+```
+
+### Install dependencies
+
+```bash
+npm install
+```
+
+### Configure environment variables
+
+Create a `.env` file:
+
+```env
+VITE_API_URL=http://localhost:3002
+```
+
+### Start development server
+
+```bash
+npm run dev
+```
+
+---
+
+## API Requirements
+
+The admin application expects the Blog API to be running and available.
+
+Required backend endpoints include:
+
+### Authentication
+
+```http
+POST /auth/login
+POST /auth/register
+```
+
+### Posts
+
+```http
+GET    /posts
+GET    /posts/:id
+POST   /posts
+PUT    /posts/:id
+DELETE /posts/:id
+PATCH  /posts/:id/publish
+```
+
+### Comments
+
+```http
+GET    /comments
+DELETE /comments/:id
+PUT    /comments/:id
+```
+
+---
+
+## Security
+
+- JWT-based authentication
+- Protected admin routes
+- Authorization checks on backend operations
+- Automatic token attachment to requests using Axios interceptors
+
+---
+
+## Future Improvements
+
+- Rich text editor for blog posts
+- Search and filtering
+- Post analytics dashboard
+- Pagination
+- User profile management
+- Comment approval workflow
+- Dark mode
+- Image upload support
+- Role-based access control
+
+---
+
+## Author
+
+Arnold Adenya
+
+Built as part of a full-stack blogging platform consisting of:
+
+- Blog API (Express + Prisma + PostgreSQL)
+- Blog Client (React)
+- Blog Admin (React Admin Dashboard)
