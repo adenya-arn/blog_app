@@ -3,7 +3,7 @@ import api from "../api/api.js";
 import PostCard from "../components/PostCard.jsx";
 import Layout from "./Layout.jsx";
 
-export default function Home() {
+export function Home() {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
