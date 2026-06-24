@@ -3,8 +3,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
 
-// import CreatePost from "./pages/CreatePost";
-// import EditPost from "./pages/EditPost";
+import CreatePost from "./pages/CreatePost";
+import EditPost from "./pages/EditPost";
 // import ManageComments from "./pages/ManageComments";
 
 import ProtectedRoute from "./components/ProtectedRoute";
@@ -24,7 +24,7 @@ function App() {
           }
         />
 
-        {/* <Route
+        <Route
           path="/create-post"
           element={
             <ProtectedRoute>
@@ -42,7 +42,7 @@ function App() {
           }
         />
 
-        <Route
+        {/* <Route
           path="/comments/:id"
           element={
             <ProtectedRoute>
