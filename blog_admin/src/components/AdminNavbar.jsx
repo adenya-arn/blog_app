@@ -13,6 +13,8 @@ export default function AdminNavbar() {
 
       <Link to="/create-post">New Post</Link>
 
+      <Link to="/comments">Comments</Link>
+
       <button id="logout-btn" onClick={logout}>
         Logout
       </button>

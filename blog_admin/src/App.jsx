@@ -2,12 +2,13 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
-
 import CreatePost from "./pages/CreatePost";
 import EditPost from "./pages/EditPost";
-// import ManageComments from "./pages/ManageComments";
+import ManageComments from "./pages/ManageComments";
 
 import ProtectedRoute from "./components/ProtectedRoute";
+
+import Layout from "./components/ Layout";
 
 function App() {
   return (
@@ -19,7 +20,9 @@ function App() {
           path="/"
           element={
             <ProtectedRoute>
-              <Dashboard />
+              <Layout>
+                <Dashboard />
+              </Layout>
             </ProtectedRoute>
           }
         />
@@ -28,7 +31,9 @@ function App() {
           path="/create-post"
           element={
             <ProtectedRoute>
-              <CreatePost />
+              <Layout>
+                <CreatePost />
+              </Layout>
             </ProtectedRoute>
           }
         />
@@ -37,19 +42,23 @@ function App() {
           path="/edit-post/:id"
           element={
             <ProtectedRoute>
-              <EditPost />
+              <Layout>
+                <EditPost />
+              </Layout>
             </ProtectedRoute>
           }
         />
 
-        {/* <Route
+        <Route
           path="/comments/:id"
           element={
             <ProtectedRoute>
-              <ManageComments />
+              <Layout>
+                <ManageComments />
+              </Layout>
             </ProtectedRoute>
           }
-        /> */}
+        />
       </Routes>
     </BrowserRouter>
   );
