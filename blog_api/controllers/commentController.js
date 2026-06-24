@@ -149,3 +149,35 @@ export async function updateComment(req, res) {
     });
   }
 }
+
+export async function getAllComments(req, res) {
+  try {
+    const comments = await prisma.comment.findMany({
+      include: {
+        user: {
+          select: {
+            id: true,
+            username: true,
+          },
+        },
+        post: {
+          select: {
+            id: true,
+            title: true,
+          },
+        },
+      },
+      orderBy: {
+        createdAt: "desc",
+      },
+    });
+
+    return res.json(comments);
+  } catch (error) {
+    console.error(error);
+
+    return res.status(500).json({
+      message: "Server error",
+    });
+  }
+}

@@ -6,6 +6,7 @@ import {
   getCommentsByPost,
   deleteComment,
   updateComment,
+  getAllComments,
 } from "../controllers/commentController.js";
 
 const commentRouter = Router();
@@ -19,4 +20,7 @@ commentRouter.post("/post/:id", authMiddleware, createComment);
 commentRouter.delete("/:id", authMiddleware, deleteComment);
 
 commentRouter.put("/:id", authMiddleware, updateComment);
+
+commentRouter.get("/", authMiddleware, getAllComments);
+
 export default commentRouter;
