@@ -1,4 +1,4 @@
-# Blog Admin
+# Blog APP
 
 A React-based admin dashboard for managing blog content. This application allows authenticated users to create, edit, publish, unpublish, and delete blog posts, as well as moderate comments related to their posts.
 
